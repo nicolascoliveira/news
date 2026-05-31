@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Página Inicial{% endblock title %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Olá, {{ user.username }}! Você tem {{ user.age }} anos.</p>
+        <form action='{% url "logout" %}' method='post'>
+            {% csrf_token %}
+            <button type='submit'>Sair</button>
+        </form>
+    {% else %}
+        <p>Você não está logado.</p>
+        <a href='{% url "login" %}'>Logar</a>
+        <a href='{% url "signup" %}'>Cadastre-se</a>
+    {% endif %}
+{% endblock content %}
