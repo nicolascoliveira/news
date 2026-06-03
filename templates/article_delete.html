@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Excluir</h1>
+    <form method="post">
+        {% csrf_token %}
+        <p>Deseja excluir o artigo "{{ article.title }}"?</p>
+        <button class="btn btn-danger ms-2" type="submit">Excluir</button>
+    </form>
+    <a href="{% url 'article_list' %}"><button class="btn btn-info ms-2">Voltar</button></a>
+{% endblock %}

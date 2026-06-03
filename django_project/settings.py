@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     #Minhas aplicações
     'accounts',
     'pages',
+    'articles',
 ]
 
 MIDDLEWARE = [

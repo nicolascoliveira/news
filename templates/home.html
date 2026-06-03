@@ -9,6 +9,8 @@
             {% csrf_token %}
             <button type='submit'>Sair</button>
         </form>
+        <br>
+        <p><a class="btn btn-primary" href="{% url 'article_list' %}" role="button">Ver todos os artigos</a></p>
     {% else %}
         <p>Você não está logado.</p>
         <a href='{% url "login" %}'>Logar</a>
