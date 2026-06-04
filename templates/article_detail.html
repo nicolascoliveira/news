@@ -11,8 +11,10 @@
         <p>{{ article.body }}</p>
     </div>
     <div>
-        <p><a href="{% url 'article_edit' article.pk %}">Editar</a>
+        {% if article.author.pk == request.user.pk or request.user.is_superuser %}
+            <p><a href="{% url 'article_edit' article.pk %}">Editar</a>
             <a href="{% url 'article_delete' article.pk %}">Excluir</a></p>
+        {% endif %}
         <p>Voltar para <a href="{% url 'article_list' %}">todos os artigos</a>.</p>
     </div>
 {% endblock %}
